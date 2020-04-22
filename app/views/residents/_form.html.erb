@@ -1,0 +1,16 @@
+
+<%= simple_form_for([@apartment, resident]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :apartment_id, label: @apartment.identifier, :as => :hidden, input_html: {value: @apartment.id}%>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :telephone %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Residents</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Apartment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @residents.each do |resident| %>
+      <tr>
+        <td><%= resident.name %></td>
+        <td><%= resident.email %></td>
+        <td><%= resident.telephone %></td>
+        <td><%= resident.apartment_id %></td>
+        <td><%= link_to 'Show', apartment_resident_path(@apartment, resident) %></td>
+        <td><%= link_to 'Edit', edit_apartment_resident_path(@apartment, resident) %></td>
+        <td><%= link_to 'Destroy', apartment_resident_path(@apartment, resident), method: :delete, data: { confirm: 'Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resident', new_apartment_resident_path %> |
+<%= link_to 'Show apartment', @apartment %>

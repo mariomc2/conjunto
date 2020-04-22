@@ -1,0 +1,10 @@
+class CreateApartments < ActiveRecord::Migration[6.0]
+  def change
+    create_table :apartments do |t|
+      t.string :identifier
+      t.belongs_to :user, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
