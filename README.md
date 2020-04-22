@@ -1,6 +1,6 @@
 # CONJUNTO
 
-### Bootstrap
+## Bootstrap
 
 Set up Bootstrap with WebPacker
 
@@ -37,7 +37,7 @@ Add the following to: app/javascript/stylesheets/application.scss
     @import '@fortawesome/fontawesome-free';
 
 ---
-### simple_form
+## simple_form
 
 Add it to the gemfile:
 
@@ -48,7 +48,7 @@ Run the generator with Bootstrap:
     rails generate simple_form:install --bootstrap
 
 ---
-### devise
+## devise
 
 Add it to the gemfile:
 
@@ -80,12 +80,12 @@ Run the migration:
     rails db:migrate
 
 ---
-### Generate HomePage
+## Generate HomePage
 
     rails g controller pages home
 
 ---
-### Seeding the DB
+## Seeding the DB
 
 Construct the seeds by editing db/seeds.rb
 
@@ -94,7 +94,7 @@ Run the seeds:
     rails db:seed
 
 ---
-### Create Apartments:
+## Create Apartments:
 
     rails generate scaffold Apartment identifier:string user:belongs_to
 
@@ -103,7 +103,7 @@ Add to the User Model:
     has_many :apartments, dependent: :destroy
 
 ---
-### Create Residents:
+## Create Residents:
     
     rails generate scaffold Resident name:string  \
         email:string telephone:string \
@@ -120,3 +120,34 @@ Config nested routes:
     end
 
 Update paths
+
+---
+## Github
+
+Create project on Github and add remote
+
+    git remote add origin git@github.com:mariomc2/conjunto.git
+
+Commit code
+
+    git add .
+    git commit -m "Initial commit"
+
+Push to Github
+
+    git push -u origin master
+
+---
+## Deployment to Heroku
+
+Install Heroku CLI
+
+Create a new app on Heroku
+
+Run the migrations and seed the DB on Heroku
+
+    heroku run rails db:migrate --app conjunto
+    heroku run rails db:migrate:status --app conjunto
+    heroku run rails db:seed --app conjunto
+
+---
